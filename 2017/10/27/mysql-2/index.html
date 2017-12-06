@@ -32,6 +32,8 @@
 
 
 
+  <meta name="baidu-site-verification" content="EDAOGEFAnj" />
+
 
 
 
@@ -79,18 +81,18 @@
 
 
 
-<meta name="description" content="续上节  删除命令:delete from tablename [where condition] delete from first where number1=&amp;apos;3&amp;apos;; 删除first表中number1=3的字段delete t1,t2,t3...tn from t1,t2....tn where condition; 一次删除多个表中的字段数据; 查询记录:select">
+<meta name="description" content="续上节  删除命令:delete from tablename [where condition]delete from first where number1=&amp;apos;3&amp;apos;; 删除first表中number1=3的字段delete t1,t2,t3...tn from t1,t2....tn where condition; 一次删除多个表中的字段数据; 查询记录:select">
 <meta name="keywords" content="mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql-2">
 <meta property="og:url" content="http://yoursite.com/2017/10/27/mysql-2/index.html">
 <meta property="og:site_name" content="朝着大佬前进">
-<meta property="og:description" content="续上节  删除命令:delete from tablename [where condition] delete from first where number1=&amp;apos;3&amp;apos;; 删除first表中number1=3的字段delete t1,t2,t3...tn from t1,t2....tn where condition; 一次删除多个表中的字段数据; 查询记录:select">
+<meta property="og:description" content="续上节  删除命令:delete from tablename [where condition]delete from first where number1=&amp;apos;3&amp;apos;; 删除first表中number1=3的字段delete t1,t2,t3...tn from t1,t2....tn where condition; 一次删除多个表中的字段数据; 查询记录:select">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-27T10:30:15.409Z">
+<meta property="og:updated_time" content="2017-12-06T04:00:17.415Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql-2">
-<meta name="twitter:description" content="续上节  删除命令:delete from tablename [where condition] delete from first where number1=&amp;apos;3&amp;apos;; 删除first表中number1=3的字段delete t1,t2,t3...tn from t1,t2....tn where condition; 一次删除多个表中的字段数据; 查询记录:select">
+<meta name="twitter:description" content="续上节  删除命令:delete from tablename [where condition]delete from first where number1=&amp;apos;3&amp;apos;; 删除first表中number1=3的字段delete t1,t2,t3...tn from t1,t2....tn where condition; 一次删除多个表中的字段数据; 查询记录:select">
 
 
 
@@ -403,22 +405,17 @@
       
         <p><strong>续上节</strong></p>
 <ol>
-<li>删除命令:<pre><code>delete from tablename [where condition]
-delete from first where number1=&apos;3&apos;;
+<li>删除命令:<br>delete from tablename [where condition]<pre><code>delete from first where number1=&apos;3&apos;;
 </code></pre>删除first表中number1=3的字段<pre><code>delete t1,t2,t3...tn from t1,t2....tn where condition;
 </code></pre>一次删除多个表中的字段数据;</li>
-<li>查询记录:<pre><code>select　*　from　tablename [where condition];
-</code></pre>一种*表示需要进行查询的字段．当然也可以用<code>,</code>将所需要查询的字段进行分割开来．<pre><code>select number1,num from first;
+<li>查询记录:<br>select　<em>　from　tablename [where condition];<br>一种</em>表示需要进行查询的字段．当然也可以用<code>,</code>将所需要查询的字段进行分割开来．<pre><code>select number1,num from first;
 </code></pre></li>
-<li>查询不重复记录,使用distinct关键字实现:<pre><code>select distinct field from tablename;
-select distinct num from first;
+<li>查询不重复记录,使用distinct关键字实现:<br>select distinct field from tablename;<pre><code>select distinct num from first;
 </code></pre>将first表中不重复的记录查找出来．</li>
-<li>条件查询,根据限定条件查询记录，使用where关键字:<pre><code>select number from first where number=2;
-</code></pre>查询表first中number为２的记录，其中条件有多种表现形式，多个条件之间可以使用<code>or</code>或者<code>and</code>来表示多个条件之间的关系．</li>
-<li>排序和限制,使用关键字order by来实现,默认情况下是以升序排序，关键字desc表示降序，asc表示升序排列:<pre><code>select * from tablename order by field;
-select * from first order by number;
+<li>条件查询,根据限定条件查询记录，使用where关键字:<br>select number from first where number=2;<br>查询表first中number为２的记录，其中条件有多种表现形式，多个条件之间可以使用<code>or</code>或者<code>and</code>来表示多个条件之间的关系．</li>
+<li>排序和限制,使用关键字order by来实现,默认情况下是以升序排序，关键字desc表示降序，asc表示升序排列:<br>select * from tablename order by field;<pre><code>select * from first order by number;
 </code></pre>表示按照number升序方式排列;<br>对于排序后的记录，如果需要显示某几行记录，那么可以使用关键字limit．<pre><code>select　*　from tablename order by field limit [offset,row_count];
-select * from first order by number limit 1,3;
+ select * from first order by number limit 1,3;
 </code></pre>表示将表first中的number按照升序排列，并且显示第一条到第三条记录．</li>
 </ol>
 
@@ -430,6 +427,35 @@ select * from first order by number limit 1,3;
 
     
 
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="ctw 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="ctw 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
     
 
     
@@ -543,7 +569,7 @@ select * from first order by number limit 1,3;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
