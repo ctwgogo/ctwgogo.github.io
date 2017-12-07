@@ -81,15 +81,18 @@
 
 
 
+<meta name="description" content="Divide-and-Conquer将原问题分解为几个规模较小但类似于原问题的子问题，递归的求解这些子问题，然后再合并这些子问题的解来建立原问题的解。 其大致的步骤可以分为三步：  分解原问题为若干子问题，这些子问题都是原问题规模较小的实例。 解决这些子问题，递归的求解各子问题。 合并这些子问题的解成原问题的解。  最大子数组数组里有正数也有负数。数组中一个或连续的多个整数组成一个子数组。求所有子">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="最大子数组">
 <meta property="og:url" content="http://yoursite.com/2017/12/06/最大子数组/index.html">
 <meta property="og:site_name" content="朝着大佬前进">
+<meta property="og:description" content="Divide-and-Conquer将原问题分解为几个规模较小但类似于原问题的子问题，递归的求解这些子问题，然后再合并这些子问题的解来建立原问题的解。 其大致的步骤可以分为三步：  分解原问题为若干子问题，这些子问题都是原问题规模较小的实例。 解决这些子问题，递归的求解各子问题。 合并这些子问题的解成原问题的解。  最大子数组数组里有正数也有负数。数组中一个或连续的多个整数组成一个子数组。求所有子">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-06T04:10:56.008Z">
+<meta property="og:updated_time" content="2017-12-07T12:57:31.800Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="最大子数组">
+<meta name="twitter:description" content="Divide-and-Conquer将原问题分解为几个规模较小但类似于原问题的子问题，递归的求解这些子问题，然后再合并这些子问题的解来建立原问题的解。 其大致的步骤可以分为三步：  分解原问题为若干子问题，这些子问题都是原问题规模较小的实例。 解决这些子问题，递归的求解各子问题。 合并这些子问题的解成原问题的解。  最大子数组数组里有正数也有负数。数组中一个或连续的多个整数组成一个子数组。求所有子">
 
 
 
@@ -400,7 +403,25 @@
       
 
       
-        
+        <h6 id="Divide-and-Conquer"><a href="#Divide-and-Conquer" class="headerlink" title="Divide-and-Conquer"></a>Divide-and-Conquer</h6><p>将原问题分解为几个规模较小但类似于原问题的子问题，递归的求解这些子问题，然后再合并这些子问题的解来建立原问题的解。</p>
+<p>其大致的步骤可以分为三步：</p>
+<ul>
+<li>分解原问题为若干子问题，这些子问题都是原问题规模较小的实例。</li>
+<li>解决这些子问题，递归的求解各子问题。</li>
+<li>合并这些子问题的解成原问题的解。</li>
+</ul>
+<h6 id="最大子数组"><a href="#最大子数组" class="headerlink" title="最大子数组"></a>最大子数组</h6><p>数组里有正数也有负数。数组中一个或连续的多个整数组成一个子数组。求所有子数组的和的最大值。假设要寻找数组为<code>A[start,high]</code>的最大和子数组，其中<code>A[]</code>表示数组，<code>start</code>和<code>high</code>表示数组的首下标和尾下标。使用分治策略之后，最大和子数组出现的位置可能有如下三种情况：</p>
+<ul>
+<li>位于子数组<code>A[start,mid]</code>中</li>
+<li>位于子数组<code>A[mid+1,high]</code>中</li>
+<li>子数组的位置跨域中点，此时需要分两部分，中点左边最大，右边最大，那么两者的和加起来就是最大。也就是我们要求的最大子数组。</li>
+</ul>
+<p>找寻最大子数组的<code>pseudo-code</code>如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">FindMaxSubArray(Array,start,end)</span><br><span class="line">	if start == end</span><br><span class="line">		return Array[start]</span><br><span class="line">	else</span><br><span class="line">		mid=[start+end]/2	</span><br><span class="line">		(left_start,left_end,left_sum)=FindMaxSubArray(Array,start,mid)</span><br><span class="line">		(right_start,right_end,right_sum)=FindMaxSubArray(Array,mid+1,end)</span><br><span class="line">		(cross_start,cross_end,cross_sum)=FindCrossSubArray(Array,start,mid,end)</span><br><span class="line">		if left_sum&gt;=right_sum and left_sum &gt;= cross_sum</span><br><span class="line">			return (left_start,left_end,left_sum)</span><br><span class="line">		elseif right_sum&gt;=left_sum and right_sum &gt;=cross_sum</span><br><span class="line">			return (right_start,right_end,right_sum)</span><br><span class="line">		else cross_sum &gt;= left_sum and cross_sum &gt;= right_sum</span><br><span class="line">			return (cross_left,cross_end,cross_sum)</span><br><span class="line">FindCrossSubArray(Array,start,mid,end)</span><br><span class="line">	left_sum=Integer.MIN_VALUE</span><br><span class="line">	sum = 0</span><br><span class="line">	for i=mid downto start</span><br><span class="line">		sum = sum + Array[i]</span><br><span class="line">		if sum &gt; left_sum</span><br><span class="line">			sum = left_sum</span><br><span class="line">			max_left=i</span><br><span class="line">	right_sum=Integer.MIN_VAlUE</span><br><span class="line">	sum=0</span><br><span class="line">	for i = mid+1 to end</span><br><span class="line">		sum=sum+Array[i]</span><br><span class="line">		if sum &gt; right_sum</span><br><span class="line">			sum = right_sum</span><br><span class="line">			max_right=i</span><br><span class="line">	return (max_left,max_right,right_sum+left_sum)</span><br></pre></td></tr></table></figure>
+<p>具体的java语言实现如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">package com.ctw.algorithm;</span><br><span class="line"></span><br><span class="line">import java.util.Arrays;</span><br><span class="line"></span><br><span class="line">import javax.sound.midi.MidiChannel;</span><br><span class="line"></span><br><span class="line">import com.ctw.algorithm.MaxSubarray.SubArray;</span><br><span class="line">//分治法实现求最大子数组</span><br><span class="line">class MaxSubarray</span><br><span class="line">&#123;</span><br><span class="line">	//找到跨越中点的最大和子数组</span><br><span class="line">	public SubArray Find_CrossingSubarray(int[] A,int low , int mid , int high) </span><br><span class="line">	&#123;</span><br><span class="line">		int left_sum  = Integer.MIN_VALUE;</span><br><span class="line">		int max_left = 0;</span><br><span class="line">		int right_sum = Integer.MIN_VALUE;</span><br><span class="line">		int max_right = 0;</span><br><span class="line">		int sum_left  = 0;</span><br><span class="line">		int sum_right = 0;</span><br><span class="line">		</span><br><span class="line">		for(int i = mid ; i &gt;= low ; i--) </span><br><span class="line">		&#123;</span><br><span class="line">			sum_left += A[i];</span><br><span class="line">			if (sum_left &gt; left_sum) &#123;</span><br><span class="line">				left_sum = sum_left;</span><br><span class="line">				max_left = i;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		for(int j = mid+1 ; j &lt;= high ; j++) &#123;</span><br><span class="line">			sum_right += A[j];</span><br><span class="line">			if (sum_right &gt; right_sum ) &#123;</span><br><span class="line">				right_sum = sum_right;</span><br><span class="line">				max_right = j;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		return new SubArray (max_left,max_right,left_sum+right_sum);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">class SubArray</span><br><span class="line">&#123;</span><br><span class="line">	int low;</span><br><span class="line">	int high;</span><br><span class="line">	int sum = 0;</span><br><span class="line">	public SubArray(int low , int high , int sum) </span><br><span class="line">	&#123;</span><br><span class="line">		this.low  = low;</span><br><span class="line">		this.high = high;</span><br><span class="line">		this.sum  = sum;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">	public SubArray Find_MaxSum(int[] A , int low , int high) </span><br><span class="line">	&#123;</span><br><span class="line">		if (low == high) &#123;</span><br><span class="line">			return new SubArray(low, high, A[low]);</span><br><span class="line">		&#125;else &#123;</span><br><span class="line">			int mid = (low+high)/2;</span><br><span class="line">			SubArray leftResult = Find_MaxSum(A, low, mid);</span><br><span class="line">			SubArray rightResult = Find_MaxSum(A, mid+1, high);</span><br><span class="line">			SubArray crossResult = Find_CrossingSubarray(A, low, mid, high);</span><br><span class="line">			if(leftResult.sum &gt;= crossResult.sum &amp;&amp; leftResult.sum&gt;= rightResult.sum)&#123;</span><br><span class="line">				return leftResult;</span><br><span class="line">			&#125;else if (rightResult.sum&gt;= leftResult.sum &amp;&amp; rightResult.sum &gt;= crossResult.sum) &#123;</span><br><span class="line">				return rightResult;</span><br><span class="line">			&#125;else &#123;</span><br><span class="line">				return crossResult;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">				</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">public class Max_Sum_array_2 &#123;</span><br><span class="line">	public static void main(String[] args) </span><br><span class="line">	&#123;</span><br><span class="line">		int[] A = new int[] &#123;1,-5,1,-2,7,-2&#125;;</span><br><span class="line">		SubArray B = new MaxSubarray().Find_MaxSum(A, 0, A.length-1);</span><br><span class="line">		System.out.println(B.low+&quot; &quot;+B.high+&quot; &quot;+B.sum);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其运行结果为:<code>4 4 7</code></p>
+
       
     </div>
     
@@ -527,8 +548,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -608,6 +638,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#Divide-and-Conquer"><span class="nav-text"><a href="#Divide-and-Conquer" class="headerlink" title="Divide-and-Conquer"></a>Divide-and-Conquer</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#最大子数组"><span class="nav-text"><a href="#&#x6700;&#x5927;&#x5B50;&#x6570;&#x7EC4;" class="headerlink" title="&#x6700;&#x5927;&#x5B50;&#x6570;&#x7EC4;"></a>&#x6700;&#x5927;&#x5B50;&#x6570;&#x7EC4;</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
