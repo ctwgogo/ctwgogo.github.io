@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://yoursite.com/2017/10/11/java-StringBuffer%E7%B1%BB/</loc>
+    <lastmod>2017-12-08T08:40:27.721Z</lastmod>
+    <data>
+        <display>
+        <title>java-StringBuffer类</title>
+        <pubTime>2017-10-11T03:46:59.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="http://yoursite.com/categories/java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2017/12/07/%E5%B8%B8%E8%A7%81%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2017-12-07T14:22:32.689Z</lastmod>
     <data>
@@ -317,26 +337,6 @@
            
              
               <breadCrumb title="linux脚本" url="http://yoursite.com/categories/linux%E8%84%9A%E6%9C%AC/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2017/10/11/java-StringBuffer%E7%B1%BB/</loc>
-    <lastmod>2017-10-11T03:55:12.288Z</lastmod>
-    <data>
-        <display>
-        <title>java-StringBuffer类</title>
-        <pubTime>2017-10-11T03:46:59.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-         
-           
-             
-              <breadCrumb title="java" url="http://yoursite.com/categories/java/"/>
           
         </display>
     </data>

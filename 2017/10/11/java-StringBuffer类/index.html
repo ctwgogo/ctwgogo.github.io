@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="朝着大佬前进">
 <meta property="og:description" content="String和StringBuffer,StringBuilder类的区别 String类声明的对象初始化后，无法被修改．它是被final修饰符修饰的，即便是调用String类的concat方法，得到一个新的字符串，也只是将得到的新字符串赋给原先的字符串． StringBuffer和StringBuilder类声明的对象初始化后，可以被多次修改，并且不产生新的未使用对象．两者最大的区别在于，Str">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-11T03:55:12.288Z">
+<meta property="og:updated_time" content="2017-12-08T08:40:27.721Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java-StringBuffer类">
 <meta name="twitter:description" content="String和StringBuffer,StringBuilder类的区别 String类声明的对象初始化后，无法被修改．它是被final修饰符修饰的，即便是调用String类的concat方法，得到一个新的字符串，也只是将得到的新字符串赋给原先的字符串． StringBuffer和StringBuilder类声明的对象初始化后，可以被多次修改，并且不产生新的未使用对象．两者最大的区别在于，Str">
@@ -421,8 +421,7 @@
       
         <h6 id="String和StringBuffer-StringBuilder类的区别"><a href="#String和StringBuffer-StringBuilder类的区别" class="headerlink" title="String和StringBuffer,StringBuilder类的区别"></a>String和StringBuffer,StringBuilder类的区别</h6><ol>
 <li>String类声明的对象初始化后，无法被修改．它是被final修饰符修饰的，即便是调用String类的concat方法，得到一个新的字符串，也只是将得到的新字符串赋给原先的字符串．</li>
-<li>StringBuffer和StringBuilder类声明的对象初始化后，可以被多次修改，并且不产生新的未使用对象．两者最大的区别在于，StringBuffer是线程安全的，可以同步访问，而StringBuilder不是线程安全的，但是StrringBuilder比StringBuffer运行速度快．下面介绍一些StringBuffer类的常见方法:<pre><code>StringBuffer sBuffer = new StringBuffer(&quot;https://ctwgogo.github.io&quot;);
-sBuffer.append(&quot;ctw&quot;);
+<li>StringBuffer和StringBuilder类声明的对象初始化后，可以被多次修改，并且不产生新的未使用对象．两者最大的区别在于，StringBuffer是线程安全的，可以同步访问，而StringBuilder不是线程安全的，但是StrringBuilder比StringBuffer运行速度快．下面介绍一些StringBuffer类的常见方法:<br>StringBuffer sBuffer = new StringBuffer(“<a href="https://ctwgogo.github.io" target="_blank" rel="noopener">https://ctwgogo.github.io</a>“);<pre><code>sBuffer.append(&quot;ctw&quot;);
 System.out.println(sBuffer);
 //1.append(String s):将指定的字符串追加到此字符序列
 sBuffer.append(&quot;hehe&quot;);
@@ -736,9 +735,9 @@ System.out.println(dst);
 
   
     <span class="site-uv">
-      <i class="fa fa-user"></i>访客人数
+      <i class="fa fa-user"></i>visitors
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      人
+      people
     </span>
   
 
