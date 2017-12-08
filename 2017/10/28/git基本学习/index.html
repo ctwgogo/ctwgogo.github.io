@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="Git是世界上最先进的分布式版本控制系统．集中式分布系统和分布式系统的区别  集中式分布系统:其中集中式分布系统，其版本库存放在中央服务器上，缺点就是联网才能使用 分布式分布系统:分布式分布系统没有中央服务器，每个人的电脑都是完整的版本库．  Linux上安装git  Ubuntu上安装git所使用的命令为:sudo apt-get install git 安装完后，需要对git进行配置:git">
+<meta name="description" content="Git是世界上最先进的分布式版本控制系统．集中式分布系统和分布式系统的区别  集中式分布系统:其中集中式分布系统，其版本库存放在中央服务器上，缺点就是联网才能使用 分布式分布系统:分布式分布系统没有中央服务器，每个人的电脑都是完整的版本库．  Linux上安装git  Ubuntu上安装git所使用的命令为:sudo apt-get install git安装完后，需要对git进行配置:   gi">
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git基本学习">
 <meta property="og:url" content="http://yoursite.com/2017/10/28/git基本学习/index.html">
 <meta property="og:site_name" content="朝着大佬前进">
-<meta property="og:description" content="Git是世界上最先进的分布式版本控制系统．集中式分布系统和分布式系统的区别  集中式分布系统:其中集中式分布系统，其版本库存放在中央服务器上，缺点就是联网才能使用 分布式分布系统:分布式分布系统没有中央服务器，每个人的电脑都是完整的版本库．  Linux上安装git  Ubuntu上安装git所使用的命令为:sudo apt-get install git 安装完后，需要对git进行配置:git">
+<meta property="og:description" content="Git是世界上最先进的分布式版本控制系统．集中式分布系统和分布式系统的区别  集中式分布系统:其中集中式分布系统，其版本库存放在中央服务器上，缺点就是联网才能使用 分布式分布系统:分布式分布系统没有中央服务器，每个人的电脑都是完整的版本库．  Linux上安装git  Ubuntu上安装git所使用的命令为:sudo apt-get install git安装完后，需要对git进行配置:   gi">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-10-28T12:34:14.894Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git基本学习">
-<meta name="twitter:description" content="Git是世界上最先进的分布式版本控制系统．集中式分布系统和分布式系统的区别  集中式分布系统:其中集中式分布系统，其版本库存放在中央服务器上，缺点就是联网才能使用 分布式分布系统:分布式分布系统没有中央服务器，每个人的电脑都是完整的版本库．  Linux上安装git  Ubuntu上安装git所使用的命令为:sudo apt-get install git 安装完后，需要对git进行配置:git">
+<meta name="twitter:description" content="Git是世界上最先进的分布式版本控制系统．集中式分布系统和分布式系统的区别  集中式分布系统:其中集中式分布系统，其版本库存放在中央服务器上，缺点就是联网才能使用 分布式分布系统:分布式分布系统没有中央服务器，每个人的电脑都是完整的版本库．  Linux上安装git  Ubuntu上安装git所使用的命令为:sudo apt-get install git安装完后，需要对git进行配置:   gi">
 
 
 
@@ -426,15 +426,11 @@
 </ol>
 <p><em>Linux上安装git</em></p>
 <ol>
-<li>Ubuntu上安装git所使用的命令为:<pre><code>sudo apt-get install git
-</code></pre>安装完后，需要对git进行配置:<pre><code>git config --global user.name &quot;ctwgogo&quot;
-git config --global user.email &quot;1129149491@qq.com&quot;
-</code></pre></li>
+<li>Ubuntu上安装git所使用的命令为:<br>sudo apt-get install git<br>安装完后，需要对git进行配置:<br>   git config –global user.name “ctwgogo”<br>   git config –global user.email “1129149491@qq.com”</li>
 </ol>
 <p><em>创建本地版本库</em></p>
 <ol>
-<li>首先在linux系统中某个目录下，新建一个目录．在该目录下，执行如下代码:<pre><code>git init;
-</code></pre>那么就会建立好仓库，首先需要建立好文件，然后将文件添加到仓库中<pre><code>git add finename
+<li>首先在linux系统中某个目录下，新建一个目录．在该目录下，执行如下代码:<br>git init;<br>那么就会建立好仓库，首先需要建立好文件，然后将文件添加到仓库中<pre><code>git add finename
 </code></pre>接下来使用如下命令，将文件提交给仓库<pre><code>git commit -m &quot;something to describe&quot;
 </code></pre></li>
 </ol>
@@ -444,10 +440,8 @@ git config --global user.email &quot;1129149491@qq.com&quot;
 </ol>
 <p><em>添加远程库</em></p>
 <ol>
-<li>在github上新建一个仓库，然后在本地使用如下命令:<pre><code>git remote add origin git@github.com:ctwgogo/studyproject.git
-</code></pre>那么将会与远程库相互关联</li>
-<li>将本地内容推送到github仓库，使用如下命令:<pre><code>git push -u origin master
-</code></pre>首次提交，需要使用<code>-u</code>命令，这将会将本地的master和远程仓库的master关联起来．以后提交内容，直接使用如下命令:<pre><code>git push origin master
+<li>在github上新建一个仓库，然后在本地使用如下命令:<br>git remote add origin git@github.com:ctwgogo/studyproject.git<br>那么将会与远程库相互关联</li>
+<li>将本地内容推送到github仓库，使用如下命令:<br>git push -u origin master<br>首次提交，需要使用<code>-u</code>命令，这将会将本地的master和远程仓库的master关联起来．以后提交内容，直接使用如下命令:<pre><code>git push origin master
 </code></pre></li>
 </ol>
 <p><em>远程库克隆</em></p>
@@ -689,8 +683,8 @@ git config --global user.email &quot;1129149491@qq.com&quot;
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
- <span id="busuanzi_container_site_pv">
-    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+ <span id="busuanzi_container_site_uv">
+    本站总访问量<span id="busuanzi_value_site_uv"></span>次
 </span>
   <span class="author" itemprop="copyrightHolder">ctw</span>
 
